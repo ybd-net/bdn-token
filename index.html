@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BDNToken 官网</title>
   <style>
     body {
@@ -52,6 +52,15 @@
       color: #94a3b8;
       font-size: 0.9rem;
     }
+    .price-box {
+      background: #1e293b;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      text-align: center;
+      color: #38bdf8;
+      font-size: 1.2rem;
+    }
   </style>
 </head>
 <body>
@@ -71,13 +80,8 @@
   </section>
 
   <section>
-    <h2>📈 实时价格</h2>
-    <p style="font-size: 1.2rem;">
-      <a href="https://dexscreener.com/bsc/0x48ae9148ab5b7E738F2C80f753426fb1190EA2A7" target="_blank" style="text-decoration: none; margin-right: 0.5rem;">
-        📉
-      </a>
-      <span id="tokenPrice">读取中...</span> USD
-    </p>
+    <h2>💡 实时价格</h2>
+    <div class="price-box" id="priceBox">BDN 价格加载中...</div>
   </section>
 
   <section>
@@ -114,18 +118,27 @@
 </div>
 
 <script>
-  async function fetchPrice() {
-    try {
-      const res = await fetch("https://api.dexscreener.com/latest/dex/search?q=0xdec3b551cdBBacdba8C0Adcf19698b19EFCf0564");
-      const data = await res.json();
-      const price = data.pairs?.[0]?.priceUsd;
-      document.getElementById("tokenPrice").textContent = price ? parseFloat(price).toFixed(6) : "暂无数据";
-    } catch (e) {
-      document.getElementById("tokenPrice").textContent = "暂无数据";
+async function fetchPrice() {
+  try {
+    const res = await fetch('https://api.dexscreener.com/latest/dex/search?q=0xdec3b551cdBBacdba8C0Adcf19698b19EFCf0564');
+    const data = await res.json();
+    const pair = data.pairs && data.pairs[0];
+    const price = pair?.priceUsd;
+
+    const priceBox = document.getElementById('priceBox');
+    if (price) {
+      priceBox.innerText = `💵 当前价格：$${parseFloat(price).toFixed(6)} USD`;
+    } else {
+      priceBox.innerText = '⚠️ 暂无价格数据';
     }
+  } catch (err) {
+    document.getElementById('priceBox').innerText = '⚠️ 获取价格失败';
   }
-  fetchPrice();
-  setInterval(fetchPrice, 30000); // 每 30 秒刷新一次
+}
+
+// 初次加载 + 每 30 秒刷新一次
+fetchPrice();
+setInterval(fetchPrice, 30000);
 </script>
 
 </body>
