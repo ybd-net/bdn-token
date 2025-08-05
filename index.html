@@ -1,122 +1,107 @@
-<!DOCTYPE html><html lang="zh"><head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BDN Token｜官方官网</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BDNToken 官网</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
     body {
-      background: #fff;
-      color: #111;
-      line-height: 1.6;
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.8;
     }
     header {
-      background: #ffffff;
+      background: #1e293b;
       padding: 2rem;
       text-align: center;
-      border-bottom: 1px solid #eee;
     }
     header h1 {
+      margin: 0;
       font-size: 2rem;
-      font-weight: 700;
+      color: #38bdf8;
     }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
     }
     section {
-      padding: 4rem 2rem;
-      max-width: 800px;
-      margin: auto;
+      margin-bottom: 2rem;
     }
     h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
+      color: #60a5fa;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.5rem;
     }
-    p {
-      margin-bottom: 1rem;
-      font-size: 1rem;
+    ul {
+      padding-left: 1.5rem;
     }
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: #000;
-      color: #fff;
-      border-radius: 8px;
+    a {
+      color: #22d3ee;
       text-decoration: none;
-      font-weight: 600;
-      margin-top: 1rem;
     }
-    #price-display {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #2b9348;
+    a:hover {
+      text-decoration: underline;
     }
-    footer {
-      background: #f9f9f9;
-      padding: 2rem;
+    .footer {
       text-align: center;
+      padding: 1rem;
+      background: #1e293b;
+      color: #94a3b8;
       font-size: 0.9rem;
-      color: #888;
     }
   </style>
-</head><body>
-  <header>
-    <h1>BDN Token</h1>
-    <nav>
-      <a href="#intro">介绍</a>
-      <a href="#token">代币信息</a>
-      <a href="#price">实时价格</a>
-      <a href="https://t.me/bdn_cn" target="_blank">社区</a>
-    </nav>
-  </header>  <section id="intro">
-    <h2>🚀 BDN 简介</h2>
-    <p>BDN 是部署于 BSC 链的新锐社区代币，旨在连接链上价值与现实世界。</p>
-    <p>由资深量化团队支持，0.5% 税收机制推动生态建设。</p>
-    <p>合约地址：<code>0xdec3b551cdBBacdba8C0Adcf19698b19EFCf0564</code></p>
-  </section>  <section id="token">
-    <h2>📊 代币信息</h2>
-    <p>代币名称：BDN Token</p>
-    <p>链：Binance Smart Chain</p>
-    <p>符号：BDN</p>
-    <p>税率：0.5%</p>
-    <p>合约地址：<br><code>0xdec3b551cdBBacdba8C0Adcf19698b19EFCf0564</code></p>
-  </section>  <section id="price">
-    <h2>📈 实时价格</h2>
-    <p>当前 BDN 价格：</p>
-    <p id="price-display">加载中...</p>
-  </section>  <section>
-    <h2>📣 加入我们</h2>
-    <p>关注我们的官方 X (Twitter) 与电报社区，获取实时动态：</p>
-    <p>X账号：<a href="https://x.com/dp_fxnet" target="_blank">@dp_fxnet</a></p>
-    <p>Telegram：<a href="https://t.me/bdn_cn" target="_blank">@bdn_cn</a></p>
-  </section>  <footer>
-    © 2025 BDN Token | Built on BSC
-  </footer>  <script>
-    async function fetchPrice() {
-      try {
-        const res = await fetch("https://api.dexscreener.com/latest/dex/pairs/bsc/0x48ae9148ab5b7E738F2C80f753426fb1190EA2A7");
-        const data = await res.json();
-        const price = data?.pair?.priceUsd;
-        if (price) {
-          document.getElementById("price-display").textContent = `$${parseFloat(price).toFixed(6)}`;
-        } else {
-          document.getElementById("price-display").textContent = "暂无数据";
-        }
-      } catch (err) {
-        document.getElementById("price-display").textContent = "加载失败";
-      }
-    }
-    fetchPrice();
-  </script></body></html>
+</head>
+<body>
+
+<header>
+  <h1>🚀 BDNToken - 构建连接 Web2 与 Web3 的量化枢纽</h1>
+</header>
+
+<div class="container">
+  <section>
+    <h2>📄 项目信息</h2>
+    <p><strong>项目名称：</strong>BDNToken</p>
+    <p><strong>代币符号：</strong>BDN</p>
+    <p><strong>发行总量：</strong>21,000,000 BDN</p>
+    <p><strong>部署链：</strong>Binance Smart Chain (BEP-20)</p>
+    <p><strong>合约地址：</strong>0xdec3b551cdBBacdba8C0Adcf19698b19EFCf0564</p>
+  </section>
+
+  <section>
+    <h2>💡 项目简介</h2>
+    <p>BDNToken 是由一个长期深耕量化金融科技的团队发行的 DeFi 代币，目标是打造一个连接 Web2 金融算法与 Web3 加密生态的价值中枢。</p>
+    <p>团队成员专注于多因子建模、高频交易、风险控制等方向，并通过去中心化方式将成果开放，推动策略、数据与资本的协同进化。</p>
+    <p>BDNToken 将作为金融数据 API、策略订阅、竞赛激励的核心支付工具，并通过链上交易税推动生态可持续发展。</p>
+  </section>
+
+  <section>
+    <h2>🔧 代币机制亮点</h2>
+    <ul>
+      <li>🔒 固定总量：总发行量为 2100 万枚，永不增发</li>
+      <li>💰 交易税机制：非白名单地址转账将收取 0.5% 税费，用于激励做市账户</li>
+      <li>🔐 合约安全：内置重入攻击防护（ReentrancyGuard）</li>
+      <li>🌱 生态发展：支持未来的 Staking、策略 NFT、DAO 治理模块</li>
+      <li>👥 白名单机制：做市和核心合约地址可免税转账</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🔭 项目愿景</h2>
+    <p>BDNToken 致力于打造一个由专业量化团队驱动的加密经济模型，实现策略红利共享。</p>
+  </section>
+
+  <section>
+    <h2>📣 社区链接</h2>
+    <p>Telegram 中文群：<a href="https://t.me/bdn_cn" target="_blank">https://t.me/bdn_cn</a></p>
+  </section>
+</div>
+
+<div class="footer">
+  © 2025 BDNToken | Powered by Quant Strategy on BSC
+</div>
+
+</body>
+</html>
